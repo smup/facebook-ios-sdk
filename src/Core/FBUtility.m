@@ -280,28 +280,11 @@ static const NSString *kAppSettingsFieldLoginTooltipContent = @"gdpv4_nux_conten
 }
 
 + (NSString *)advertiserID {
-    NSString *advertiserID = nil;
-    Class ASIdentifierManagerClass = [FBDynamicFrameworkLoader loadClass:@"ASIdentifierManager" withFramework:@"AdSupport"];
-    if ([ASIdentifierManagerClass class]) {
-        ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
-        advertiserID = [[manager advertisingIdentifier] UUIDString];
-    }
-    return advertiserID;
+    return nil;
 }
 
 + (FBAdvertisingTrackingStatus)advertisingTrackingStatus {
-    if ([FBSettings restrictedTreatment] == FBRestrictedTreatmentYES) {
-        return AdvertisingTrackingDisallowed;
-    }
-    FBAdvertisingTrackingStatus status = AdvertisingTrackingUnspecified;
-    Class ASIdentifierManagerClass = [FBDynamicFrameworkLoader loadClass:@"ASIdentifierManager" withFramework:@"AdSupport"];
-    if ([ASIdentifierManagerClass class]) {
-        ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
-        if (manager) {
-            status = [manager isAdvertisingTrackingEnabled] ? AdvertisingTrackingAllowed : AdvertisingTrackingDisallowed;
-        }
-    }
-    return status;
+    return AdvertisingTrackingDisallowed;
 }
 
 + (void)updateParametersWithEventUsageLimitsAndBundleInfo:(NSMutableDictionary *)parameters
