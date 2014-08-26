@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.header_dir      = 'FacebookSDK'
   s.frameworks      = 'Accounts', 'CoreLocation', 'Social', 'Security'
   s.prepare_command = "find src -name \\*.png | grep -v @ | grep -v -- - | sed -e 's|\\(.*\\)/\\([a-zA-Z0-9]*\\).png|scripts/image_to_code.py -i \\1/\\2.png -c \\2 -o src|' | sh && find src -name \\*.wav | grep -v @ | grep -v -- - | sed -e 's|\\(.*\\)/\\([a-zA-Z0-9]*\\).wav|scripts/audio_to_code.py -i \\1/\\2.wav -c \\2 -o src|'  | sh"
-  s.dependency        'Bolts'
+  s.dependency        'Bolts', '1.1.2'
   s.requires_arc    = false
 end
