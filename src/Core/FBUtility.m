@@ -338,16 +338,7 @@ NSString *const FBPersistedAnonymousIDKey   = @"anon_id";
 }
 
 + (NSString *)advertiserID {
-    
-    NSString *result = nil;
-    
-    Class ASIdentifierManagerClass = fbdfl_ASIdentifierManagerClass();
-    if ([ASIdentifierManagerClass class]) {
-        ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
-        result = [[manager advertisingIdentifier] UUIDString];
-    }
-    
-    return result;
+    return nil;
 }
 
 + (NSString *)anonymousID {
